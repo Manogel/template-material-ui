@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -14,6 +15,7 @@
     "babel-plugin-root-import": "^6.6.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
@@ -45,6 +47,7 @@
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "@types/react-router-dom": "^5.1.6",
     "babel-eslint": "^10.1.0",
     "customize-cra": "^1.0.0",
     "customize-cra-react-refresh": "^1.1.0",
