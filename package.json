@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -44,6 +45,11 @@
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
-    "customize-cra": "^1.0.0"
+    "babel-eslint": "^10.1.0",
+    "customize-cra": "^1.0.0",
+    "customize-cra-react-refresh": "^1.1.0",
+    "eslint-import-resolver-babel-plugin-root-import": "^1.1.1",
+    "react-app-rewired": "^2.1.6",
+    "react-refresh": "^0.9.0"
   }
 }
