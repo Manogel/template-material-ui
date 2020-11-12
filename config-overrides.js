@@ -18,6 +18,10 @@ module.exports = override(
           rootPathPrefix: '@hooks/',
         },
         {
+          rootPathSuffix: './src/styles',
+          rootPathPrefix: '@styles/',
+        },
+        {
           rootPathSuffix: './src/assets',
           rootPathPrefix: '@assets/',
         },
@@ -39,5 +43,5 @@ module.exports = override(
         },
       ],
     },
-  ])
+  ]),
 );

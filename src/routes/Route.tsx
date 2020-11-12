@@ -5,12 +5,12 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-interface RouteProps extends ReactDOMRouteProps {
+interface IRouteProps extends ReactDOMRouteProps {
   isPrivate?: boolean;
   component: React.ComponentType;
 }
 
-const Route: React.FC<RouteProps> = ({
+const Route: React.FC<IRouteProps> = ({
   isPrivate = false,
   component: Component,
   ...rest
