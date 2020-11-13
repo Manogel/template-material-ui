@@ -16,8 +16,9 @@ import {
 } from '@material-ui/core';
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
+    backgroundColor: theme.palette.background.default,
     height: '100%',
   },
   avatar: {

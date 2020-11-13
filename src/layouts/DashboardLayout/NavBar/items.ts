@@ -1,11 +1,9 @@
 import {
   AlertCircle as AlertCircleIcon,
   BarChart as BarChartIcon,
-  Lock as LockIcon,
   Settings as SettingsIcon,
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
-  UserPlus as UserPlusIcon,
   Users as UsersIcon,
 } from 'react-feather';
 
@@ -16,9 +14,9 @@ const navItems = [
     title: 'Dashboard',
   },
   {
-    href: '/app/customers',
+    href: '/app/users',
     icon: UsersIcon,
-    title: 'Customers',
+    title: 'Usuários',
   },
   {
     href: '/app/products',

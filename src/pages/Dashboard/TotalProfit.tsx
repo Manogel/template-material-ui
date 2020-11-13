@@ -14,8 +14,9 @@ import {
 } from '@material-ui/core';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
+    backgroundColor: theme.palette.background.default,
     height: '100%',
   },
   avatar: {

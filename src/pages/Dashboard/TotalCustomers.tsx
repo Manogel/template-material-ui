@@ -18,6 +18,7 @@ import PeopleIcon from '@material-ui/icons/PeopleOutlined';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    backgroundColor: theme.palette.background.default,
     height: '100%',
   },
   avatar: {

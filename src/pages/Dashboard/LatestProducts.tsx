@@ -55,15 +55,16 @@ const data = [
   },
 ];
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
+    backgroundColor: theme.palette.background.default,
     height: '100%',
   },
   image: {
     height: 48,
     width: 48,
   },
-});
+}));
 
 type IParams = CardProps & {
   className?: string;

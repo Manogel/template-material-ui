@@ -87,8 +87,10 @@ const data = [
   },
 ];
 
-const useStyles = makeStyles(() => ({
-  root: {},
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: theme.palette.background.default,
+  },
   actions: {
     justifyContent: 'flex-end',
   },

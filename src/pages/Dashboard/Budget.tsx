@@ -19,6 +19,7 @@ import MoneyIcon from '@material-ui/icons/Money';
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
+    backgroundColor: theme.palette.background.default,
   },
   avatar: {
     backgroundColor: colors.red[600],
