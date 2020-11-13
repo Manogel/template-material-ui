@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NotFoundView = () => {
+const NotFound = () => {
   const classes = useStyles();
 
   return (
@@ -51,4 +51,4 @@ const NotFoundView = () => {
   );
 };
 
-export default NotFoundView;
+export default NotFound;
