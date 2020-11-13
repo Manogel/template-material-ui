@@ -13,6 +13,7 @@ const useStyles = makeStyles(() => ({
     cursor: 'pointer',
     width: 64,
     height: 64,
+    marginBottom: 5,
   },
 }));
 
