@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import * as Yup from 'yup';
 
@@ -7,6 +8,7 @@ import FacebookIcon from '@assets/icons/Facebook';
 import GoogleIcon from '@assets/icons/Google';
 import Input from '@components/Input';
 import Page from '@components/Page';
+import { useAuth } from '@contexts/auth';
 import {
   Box,
   Button,
@@ -27,6 +29,8 @@ interface IFormData {
 }
 
 const SignIn: React.FC = () => {
+  const { signIn, loading } = useAuth();
+  const navigate = useNavigate();
   const classes = useStyles();
   const formRef = React.useRef<FormHandles>(null);
 
@@ -41,7 +45,9 @@ const SignIn: React.FC = () => {
       });
 
       await schema.validate(data, { abortEarly: false });
-      console.log(data);
+
+      await signIn(data);
+      navigate('/app/dashboard', { replace: true });
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);
@@ -118,6 +124,7 @@ const SignIn: React.FC = () => {
                 size="large"
                 type="submit"
                 variant="contained"
+                disabled={loading}
               >
                 Entrar
               </Button>

@@ -4,6 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 
 import Logo from '@components/Logo';
+import { useAuth } from '@contexts/auth';
 import {
   AppBar,
   Badge,
@@ -25,6 +26,7 @@ type IParams = AppBarProps & {
 };
 
 const TopBar = ({ className, onMobileNavOpen, ...rest }: IParams) => {
+  const { signOut } = useAuth();
   const classes = useStyles();
   const [notifications] = useState([]);
 
@@ -45,7 +47,7 @@ const TopBar = ({ className, onMobileNavOpen, ...rest }: IParams) => {
               <NotificationsIcon />
             </Badge>
           </IconButton>
-          <IconButton color="inherit">
+          <IconButton color="inherit" onClick={signOut}>
             <InputIcon />
           </IconButton>
         </Hidden>
