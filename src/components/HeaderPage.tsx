@@ -1,4 +1,5 @@
 import React from 'react';
+import { Upload as ImportIcon, Download as ExportIcon } from 'react-feather';
 
 import {
   Box,
@@ -9,8 +10,6 @@ import {
   ButtonProps,
 } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import ExportIcon from '@material-ui/icons/VerticalAlignBottom';
-import ImportIcon from '@material-ui/icons/VerticalAlignTop';
 
 const useStyles = makeStyles(() => ({
   buttonExport: {
@@ -36,8 +35,11 @@ const HeaderPage: React.FC<IParams> = (props) => {
         </Typography>
 
         {/* <Box marginTop={2}>
-          <Button startIcon={<ImportIcon />}>Importar</Button>
-          <Button startIcon={<ExportIcon />} className={classes.buttonExport}>
+          <Button startIcon={<ImportIcon size={18} />}>Importar</Button>
+          <Button
+            startIcon={<ExportIcon size={18} />}
+            className={classes.buttonExport}
+          >
             Exportar
           </Button>
         </Box> */}
