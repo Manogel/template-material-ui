@@ -18,8 +18,8 @@ module.exports = override(
           rootPathPrefix: '@pages/',
         },
         {
-          rootPathSuffix: './src/hooks',
-          rootPathPrefix: '@hooks/',
+          rootPathSuffix: './src/contexts',
+          rootPathPrefix: '@contexts/',
         },
         {
           rootPathSuffix: './src/styles',
