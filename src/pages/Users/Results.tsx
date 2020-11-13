@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 import clsx from 'clsx';
-import { format } from 'date-fns';
 
+import ActionsColumn from '@components/tables/ActionsColumn';
 import FooterPagination from '@components/tables/FooterPagination';
 import {
   Avatar,
@@ -120,7 +120,7 @@ const Results = ({ className, customers, ...rest }: IParams) => {
                 <TableCell>Email</TableCell>
                 <TableCell>Location</TableCell>
                 <TableCell>Phone</TableCell>
-                <TableCell>Registration date</TableCell>
+                <TableCell>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -156,7 +156,17 @@ const Results = ({ className, customers, ...rest }: IParams) => {
                   </TableCell>
                   <TableCell>{customer.phone}</TableCell>
                   <TableCell>
-                    {format(customer.createdAt, 'dd/MM/yyyy')}
+                    <ActionsColumn
+                      onArrowPress={() => {
+                        //
+                      }}
+                      onEditPress={() => {
+                        //
+                      }}
+                      onTashPress={() => {
+                        //
+                      }}
+                    />
                   </TableCell>
                 </TableRow>
               ))}
