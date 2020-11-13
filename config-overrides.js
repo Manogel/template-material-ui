@@ -10,6 +10,10 @@ module.exports = override(
     {
       paths: [
         {
+          rootPathSuffix: './src/layouts',
+          rootPathPrefix: '@layouts/',
+        },
+        {
           rootPathSuffix: './src/pages',
           rootPathPrefix: '@pages/',
         },

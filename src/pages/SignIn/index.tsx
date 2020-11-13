@@ -1,13 +1,20 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 
 import * as Yup from 'yup';
 
+import FacebookIcon from '@assets/icons/Facebook';
+import GoogleIcon from '@assets/icons/Google';
 import Input from '@components/Input';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Page from '@components/Page';
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Link,
+  Typography,
+} from '@material-ui/core';
 import { SubmitHandler, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import getValidationErrors from '@utils/getValidationErrors';
@@ -44,41 +51,87 @@ const SignIn: React.FC = () => {
   };
 
   return (
-    <Container className={classes.root} component="main" maxWidth="xs">
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Faça seu login
-        </Typography>
-        <Form className={classes.form} onSubmit={handleSubmit} ref={formRef}>
-          <Input
-            required
-            label="Email"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <Input
-            required
-            name="password"
-            label="Senha"
-            type="password"
-            autoComplete="current-password"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Entrar
-          </Button>
-        </Form>
-      </div>
-    </Container>
+    <Page className={classes.root} title="Login">
+      <Box
+        display="flex"
+        flexDirection="column"
+        height="100%"
+        justifyContent="center"
+      >
+        <Container maxWidth="sm">
+          <Form onSubmit={handleSubmit} ref={formRef}>
+            <Box mb={3}>
+              <Typography color="textPrimary" variant="h2">
+                Entrar
+              </Typography>
+              <Typography color="textSecondary" gutterBottom variant="body2">
+                Faça login na plataforma interna
+              </Typography>
+            </Box>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={6}>
+                <Button
+                  color="primary"
+                  fullWidth
+                  startIcon={<FacebookIcon />}
+                  size="large"
+                  variant="contained"
+                >
+                  Entrar com facebook
+                </Button>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Button
+                  fullWidth
+                  startIcon={<GoogleIcon />}
+                  size="large"
+                  variant="contained"
+                >
+                  Entrar com o google
+                </Button>
+              </Grid>
+            </Grid>
+            <Box mt={3} mb={1}>
+              <Typography align="center" color="textSecondary" variant="body1">
+                ou faça login com seu email e senha
+              </Typography>
+            </Box>
+            <Input
+              required
+              label="Email"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <Input
+              required
+              name="password"
+              label="Senha"
+              type="password"
+              autoComplete="current-password"
+            />
+
+            <Box my={2}>
+              <Button
+                color="primary"
+                fullWidth
+                size="large"
+                type="submit"
+                variant="contained"
+              >
+                Entrar
+              </Button>
+            </Box>
+            <Typography color="textSecondary" variant="body1">
+              Ainda não tem uma conta?{' '}
+              <Link component={RouterLink} to="/register" variant="h6">
+                Cadastre-se
+              </Link>
+            </Typography>
+          </Form>
+        </Container>
+      </Box>
+    </Page>
   );
 };
 

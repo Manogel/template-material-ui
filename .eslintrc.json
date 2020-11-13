@@ -93,7 +93,9 @@
       }
     ],
     "jsx-a11y/anchor-is-valid": "off",
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "react/require-default-props": "off",
+    "react/jsx-wrap-multilines": "off"
   },
   "settings": {
     "import/resolver": {

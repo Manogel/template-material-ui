@@ -1,12 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { useRoutes } from 'react-router-dom';
 
-import Routes from './routes/index';
+import { ThemeProvider } from '@material-ui/core/styles';
+import GlobalStyles from '@styles/global';
+import theme from '@styles/theme';
+
+import '@utils/chartjs';
+import routes from './routes/index';
 
 export default function App() {
+  const routing = useRoutes(routes);
+
   return (
-    <Router>
-      <Routes />
-    </Router>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      {routing}
+    </ThemeProvider>
   );
 }
