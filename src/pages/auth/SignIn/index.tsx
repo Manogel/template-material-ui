@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import FacebookIcon from '@assets/icons/Facebook';
 import GoogleIcon from '@assets/icons/Google';
 import Input from '@components/Input';
+import MyButton from '@components/MyButton';
 import Page from '@components/Page';
 import { useAuth } from '@contexts/auth';
 import {
@@ -118,16 +119,9 @@ const SignIn: React.FC = () => {
             />
 
             <Box my={2}>
-              <Button
-                color="primary"
-                fullWidth
-                size="large"
-                type="submit"
-                variant="contained"
-                disabled={loading}
-              >
+              <MyButton type="submit" disabled={loading} loading>
                 Entrar
-              </Button>
+              </MyButton>
             </Box>
             <Typography color="textSecondary" variant="body1">
               Ainda não tem uma conta?{' '}
