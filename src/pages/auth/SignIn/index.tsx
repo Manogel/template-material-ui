@@ -119,7 +119,7 @@ const SignIn: React.FC = () => {
             />
 
             <Box my={2}>
-              <MyButton type="submit" disabled={loading} loading>
+              <MyButton type="submit" loading={loading}>
                 Entrar
               </MyButton>
             </Box>

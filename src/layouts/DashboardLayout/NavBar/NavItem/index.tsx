@@ -6,7 +6,7 @@ import clsx from 'clsx';
 
 import { Button, ListItem } from '@material-ui/core';
 
-import useStyles from './NavItemStyles';
+import useStyles from './styles';
 
 type IParams = {
   icon: React.FC<Props>;

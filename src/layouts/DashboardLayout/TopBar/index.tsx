@@ -13,12 +13,13 @@ import {
   IconButton,
   Toolbar,
   AppBarProps,
+  Tooltip,
 } from '@material-ui/core';
 import InputIcon from '@material-ui/icons/Input';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 
-import useStyles from './TopBarStyles';
+import useStyles from './styles';
 
 type IParams = AppBarProps & {
   className?: string;
@@ -38,18 +39,22 @@ const TopBar = ({ className, onMobileNavOpen, ...rest }: IParams) => {
         </RouterLink>
         <Box flexGrow={1} />
         <Hidden mdDown>
-          <IconButton color="inherit">
-            <Badge
-              badgeContent={notifications.length}
-              color="primary"
-              variant="dot"
-            >
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
-          <IconButton color="inherit" onClick={signOut}>
-            <InputIcon />
-          </IconButton>
+          <Tooltip title="Notificações" aria-label="notificações" arrow>
+            <IconButton color="inherit">
+              <Badge
+                badgeContent={notifications.length}
+                color="primary"
+                variant="dot"
+              >
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Sair" aria-label="sair" arrow>
+            <IconButton color="inherit" onClick={signOut}>
+              <InputIcon />
+            </IconButton>
+          </Tooltip>
         </Hidden>
         <Hidden lgUp>
           <IconButton color="inherit" onClick={onMobileNavOpen}>

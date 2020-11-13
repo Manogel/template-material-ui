@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import Logo from '@components/Logo';
 import { AppBar, Toolbar, AppBarProps } from '@material-ui/core';
 
-import useStyles from './TopBarStyles';
+import useStyles from './styles';
 
 type IParams = AppBarProps & {
   className?: string;

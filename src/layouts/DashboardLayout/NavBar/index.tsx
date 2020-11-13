@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 
+import { useAuth } from '@contexts/auth';
 import {
   Avatar,
   Box,
@@ -15,18 +16,13 @@ import navItems from './items';
 import NavItem from './NavItem';
 import useStyles from './styles';
 
-const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Senior Developer',
-  name: 'Katarina Smith',
-};
-
 type IParams = {
   onMobileClose: () => void;
   openMobile?: boolean;
 };
 
 const NavBar = ({ onMobileClose, openMobile }: IParams) => {
+  const { user } = useAuth();
   const classes = useStyles();
   const location = useLocation();
 
@@ -43,14 +39,13 @@ const NavBar = ({ onMobileClose, openMobile }: IParams) => {
         <Avatar
           className={classes.avatar}
           component={RouterLink}
-          src={user.avatar}
           to="/app/account"
         />
         <Typography color="textPrimary" variant="h5">
           {user.name}
         </Typography>
         <Typography color="textSecondary" variant="body2">
-          {user.jobTitle}
+          {user.email}
         </Typography>
       </Box>
       <Divider />
