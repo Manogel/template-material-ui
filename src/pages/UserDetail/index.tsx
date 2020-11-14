@@ -5,6 +5,7 @@ import Page from '@components/Page';
 import { Tabs, Tab, Divider } from '@material-ui/core';
 
 import { Header } from './components';
+import Invoices from './Invoices';
 import useStyles from './styles';
 import Summary from './Summary';
 
@@ -56,7 +57,10 @@ const UserDetail: React.FC = () => {
         ))}
       </Tabs>
       <Divider className={classes.divider} />
-      <div className={classes.content}>{tab === 'summary' && <Summary />}</div>
+      <div className={classes.content}>
+        {tab === 'summary' && <Summary />}
+        {tab === 'invoices' && <Invoices />}
+      </div>
     </Page>
   );
 };

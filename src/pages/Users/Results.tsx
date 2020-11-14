@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import { useNavigate } from 'react-router-dom';
 
 import clsx from 'clsx';
 
@@ -42,6 +43,7 @@ const Results = ({ className, customers, ...rest }: IParams) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState<string[]>([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
+  const navigate = useNavigate();
 
   const handleSelectAll = (event: React.ChangeEvent<HTMLInputElement>) => {
     let newSelectedCustomerIds: string[] = [];
@@ -158,7 +160,7 @@ const Results = ({ className, customers, ...rest }: IParams) => {
                   <TableCell>
                     <ActionsColumn
                       onArrowPress={() => {
-                        //
+                        navigate('1');
                       }}
                       onEditPress={() => {
                         //
