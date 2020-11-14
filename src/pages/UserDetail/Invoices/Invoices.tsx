@@ -22,11 +22,6 @@ import {
 
 import useStyles from './styles';
 
-type IDivParams = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->;
-
 type IParams = IDivParams & {
   className?: string;
 };

@@ -9,11 +9,6 @@ const useStyles = makeStyles(() => ({
   root: {},
 }));
 
-type IDivParams = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->;
-
 type IParams = IDivParams & {
   className?: string;
 };

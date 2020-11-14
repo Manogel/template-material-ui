@@ -6,6 +6,7 @@ import { Tabs, Tab, Divider } from '@material-ui/core';
 
 import { Header } from './components';
 import Invoices from './Invoices';
+import Logs from './Logs';
 import useStyles from './styles';
 import Summary from './Summary';
 
@@ -60,6 +61,7 @@ const UserDetail: React.FC = () => {
       <div className={classes.content}>
         {tab === 'summary' && <Summary />}
         {tab === 'invoices' && <Invoices />}
+        {tab === 'logs' && <Logs />}
       </div>
     </Page>
   );
