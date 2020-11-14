@@ -1,6 +1,8 @@
 import React from 'react';
 import { Search as SearchIcon } from 'react-feather';
 
+import { useDebouncedCallback } from 'use-debounce';
+
 import {
   Box,
   SvgIcon,
@@ -8,6 +10,7 @@ import {
   makeStyles,
   TextField,
   TextFieldProps,
+  CircularProgress,
 } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -32,13 +35,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 type IParams = TextFieldProps & {
-  //
+  onInputChange?: (text: string) => void;
+  loadingSearch?: boolean;
 };
 
-// Apply debounce in input change
-
 const HeaderSearch: React.FC<IParams> = (props) => {
+  const { onInputChange, loadingSearch, ...rest } = props;
   const classes = useStyles();
+
+  const debouncedSearchText = useDebouncedCallback((value: string) => {
+    if (onInputChange) {
+      onInputChange(value);
+    }
+  }, 1000);
 
   return (
     <Box className={classes.cardHeaderContainer}>
@@ -54,10 +63,16 @@ const HeaderSearch: React.FC<IParams> = (props) => {
               </SvgIcon>
             </InputAdornment>
           ),
+          endAdornment: loadingSearch && (
+            <InputAdornment position="end">
+              <CircularProgress size={22} color="primary" />
+            </InputAdornment>
+          ),
         }}
         placeholder="Search"
         variant="outlined"
-        {...props}
+        {...rest}
+        onChange={(e) => debouncedSearchText.callback(e.target.value)}
       />
     </Box>
   );
