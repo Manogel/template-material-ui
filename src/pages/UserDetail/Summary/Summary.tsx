@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { Grid, GridProps } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 
-import { UserInfo } from './components';
+import { UserInfo, Invoices } from './components';
 
 const useStyles = makeStyles(({ palette }) => ({
   root: {},
@@ -36,7 +36,7 @@ const Summary = (props: IParams) => {
         <UserInfo />
       </Grid>
       <Grid item lg={4} md={6} xl={3} xs={12}>
-        {/* <Invoices customer={customer} /> */}
+        <Invoices />
       </Grid>
       <Grid item lg={4} md={6} xl={3} xs={12}>
         {/* <SendEmails customer={customer} /> */}
