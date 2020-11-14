@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 
-import clsx from 'clsx';
-
 import { Grid, GridProps } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core';
 
-import { UserInfo, Invoices } from './components';
-
-const useStyles = makeStyles(({ palette }) => ({
-  root: {},
-}));
+import { UserInfo, Invoices, SendEmails } from './components';
+import OtherActions from './components/OtherActions';
 
 type IParams = GridProps & {
   className?: string;
@@ -18,7 +12,6 @@ type IParams = GridProps & {
 const Summary = (props: IParams) => {
   const { className, ...rest } = props;
 
-  const classes = useStyles();
   const [customer] = useState({});
 
   if (!customer) {
@@ -26,12 +19,7 @@ const Summary = (props: IParams) => {
   }
 
   return (
-    <Grid
-      {...rest}
-      className={clsx(classes.root, className)}
-      container
-      spacing={3}
-    >
+    <Grid {...rest} className={className} container spacing={3}>
       <Grid item lg={4} md={6} xl={3} xs={12}>
         <UserInfo />
       </Grid>
@@ -39,10 +27,10 @@ const Summary = (props: IParams) => {
         <Invoices />
       </Grid>
       <Grid item lg={4} md={6} xl={3} xs={12}>
-        {/* <SendEmails customer={customer} /> */}
+        <SendEmails />
       </Grid>
       <Grid item lg={4} md={6} xl={3} xs={12}>
-        {/* <OtherActions /> */}
+        <OtherActions />
       </Grid>
     </Grid>
   );
