@@ -1,4 +1,7 @@
-export default {
+import { Palette } from '@material-ui/core/styles/createPalette';
+import { TypographyOptions } from '@material-ui/core/styles/createTypography';
+
+const typography = (palette: Palette): TypographyOptions => ({
   h1: {
     fontWeight: 500,
     fontSize: 35,
@@ -13,6 +16,7 @@ export default {
     fontWeight: 500,
     fontSize: 24,
     letterSpacing: '-0.06px',
+    color: palette.text.primary,
   },
   h4: {
     fontWeight: 500,
@@ -31,5 +35,8 @@ export default {
   },
   overline: {
     fontWeight: 500,
+    color: palette.text.secondary,
   },
-} as const;
+});
+
+export default typography;

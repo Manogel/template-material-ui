@@ -9,6 +9,7 @@ import SignIn from '@pages/auth/SignIn';
 import Dashboard from '@pages/Dashboard';
 import NotFound from '@pages/errors/NotFound';
 import Products from '@pages/Products';
+import UserDetail from '@pages/UserDetail';
 import Users from '@pages/Users';
 
 import Route from './Route';
@@ -19,6 +20,8 @@ const routes: PartialRouteObject[] = [
     element: <Route component={DashboardLayout} isPrivate />,
     children: [
       { path: 'users', element: <Users /> },
+      { path: 'users/:id', element: <UserDetail /> },
+      { path: 'users/:id/:tab', element: <UserDetail /> },
       { path: 'dashboard', element: <Dashboard /> },
       { path: 'products', element: <Products /> },
       { path: '/', element: <Navigate to="/app/dashboard" replace /> },
