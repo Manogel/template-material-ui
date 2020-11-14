@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import GlobalStyles from '@styles/global';
 import theme from '@styles/theme';
 
+import 'react-perfect-scrollbar/dist/css/styles.css';
 import '@utils/chartjs';
 import AppProvider from './contexts';
 import routes from './routes/index';
