@@ -1,10 +1,7 @@
 import React, { forwardRef } from 'react';
 import { Helmet } from 'react-helmet';
 
-type IParams = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
-> & {
+type IParams = IDivParams & {
   title?: string;
 };
 

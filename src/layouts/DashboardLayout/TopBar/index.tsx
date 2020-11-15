@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 import clsx from 'clsx';
 
-import Logo from '@components/Logo';
+import { Logo } from '@assets/svgs';
 import { useAuth } from '@contexts/auth';
 import {
   AppBar,
