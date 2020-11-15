@@ -10,8 +10,8 @@ import useStyles from './styles';
 
 type IParams = GridProps & {
   className?: string;
-  onFilter(): void;
-  onSearch(): void;
+  onFilter(filters: string): void;
+  onSearch(value: string): void;
 };
 
 const SearchBar = (props: IParams) => {

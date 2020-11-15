@@ -7,7 +7,7 @@ type IParams = TextFieldProps & {
   name: string;
 };
 
-const Input: React.FC<IParams> = ({ name, ...rest }) => {
+const MyInput: React.FC<IParams> = ({ name, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { fieldName, defaultValue, registerField, error } = useField(name);
   useEffect(() => {
@@ -18,20 +18,18 @@ const Input: React.FC<IParams> = ({ name, ...rest }) => {
     });
   }, [fieldName, registerField]);
   return (
-    <>
-      <TextField
-        inputRef={inputRef}
-        name={name}
-        id={fieldName}
-        variant="outlined"
-        margin="normal"
-        fullWidth
-        defaultValue={defaultValue}
-        error={!!error}
-        {...rest}
-        helperText={error}
-      />
-    </>
+    <TextField
+      inputRef={inputRef}
+      name={name}
+      id={fieldName}
+      variant="outlined"
+      margin="normal"
+      fullWidth
+      defaultValue={defaultValue}
+      error={!!error}
+      {...rest}
+      helperText={error}
+    />
   );
 };
-export default Input;
+export default MyInput;

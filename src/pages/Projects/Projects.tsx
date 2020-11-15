@@ -15,11 +15,11 @@ const Projects = () => {
   const [page] = useState(0);
   const [projects] = useState(projectsData);
 
-  const handleFilter = () => {
-    //
+  const handleFilter = (filters: any) => {
+    console.log(filters);
   };
-  const handleSearch = () => {
-    //
+  const handleSearch = (value: string) => {
+    console.log(value);
   };
 
   const onPageChange = (toPage: number) => {

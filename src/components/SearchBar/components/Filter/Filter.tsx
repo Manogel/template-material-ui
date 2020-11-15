@@ -27,7 +27,7 @@ import useStyles from './styles';
 type IParams = {
   className?: string;
   onClose(value?: any): void;
-  onFilter(value?: any): void;
+  onFilter(filters?: any): void;
   open: boolean;
 };
 

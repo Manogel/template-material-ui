@@ -2,20 +2,27 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-import { Paper, Button, Input } from '@material-ui/core';
+import MyButton from '@components/MyButton';
+import { Paper, Input, InputProps } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
 import useStyles from './styles';
 
 type IParams = IDivParams & {
   className?: string;
-  onSearch(): void;
+  onSearch(text: string): void;
+  loadingSearch?: boolean;
+  inputProps?: InputProps;
 };
 
 const Search = (props: IParams) => {
-  const { onSearch, className, ...rest } = props;
-
+  const { onSearch, className, inputProps, loadingSearch, ...rest } = props;
+  const [search, setSearch] = React.useState('');
   const classes = useStyles();
+
+  const handleSearch = () => {
+    onSearch(search);
+  };
 
   return (
     <div {...rest} className={clsx(classes.root, className)}>
@@ -25,16 +32,21 @@ const Search = (props: IParams) => {
           className={classes.searchInput}
           disableUnderline
           placeholder="Search"
+          disabled={loadingSearch}
+          {...inputProps}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </Paper>
-      <Button
+      <MyButton
         className={classes.searchButton}
-        onClick={onSearch}
-        size="large"
-        variant="contained"
+        type="button"
+        fullWidth={false}
+        onClick={handleSearch}
+        loading={loadingSearch}
       >
         Search
-      </Button>
+      </MyButton>
     </div>
   );
 };
