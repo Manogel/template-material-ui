@@ -33,9 +33,24 @@ const typography = (palette: Palette): TypographyOptions => ({
     fontSize: 14,
     letterSpacing: '-0.05px',
   },
-  overline: {
-    fontWeight: 500,
+  body1: {
+    color: palette.text.primary,
+    fontSize: '14px',
+    letterSpacing: '-0.05px',
+    lineHeight: '21px',
+  },
+  body2: {
     color: palette.text.secondary,
+    fontSize: 12,
+    letterSpacing: '-0.04px',
+    lineHeight: '18px',
+  },
+  overline: {
+    color: palette.text.secondary,
+    fontWeight: 500,
+    letterSpacing: '0.33px',
+    lineHeight: '13px',
+    textTransform: 'uppercase',
   },
 });
 

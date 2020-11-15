@@ -5,6 +5,7 @@ import {
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
   Users as UsersIcon,
+  Folder as FolderIcon,
 } from 'react-feather';
 
 const navItems = [
@@ -17,6 +18,11 @@ const navItems = [
     href: '/app/users',
     icon: UsersIcon,
     title: 'Usuários',
+  },
+  {
+    href: '/app/projects',
+    icon: FolderIcon,
+    title: 'Projetos',
   },
   {
     href: '/app/products',

@@ -1,30 +1,22 @@
-import { createMuiTheme, colors } from '@material-ui/core';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 
+import palette from './palette';
 import shadows from './shadows';
 import typography from './typography';
 
 const theme = createMuiTheme({
-  palette: {
-    background: {
-      default: colors.common.white,
-      paper: '#F4F6F8',
-    },
-    primary: {
-      main: colors.indigo[500],
-    },
-    error: {
-      main: '#d54244',
-    },
-    secondary: {
-      main: colors.indigo[500],
-    },
-    text: {
-      primary: '#263238',
-      secondary: colors.blueGrey[600],
-    },
-  },
+  palette,
   shadows,
   typography,
+  overrides: {
+    MuiTableCell: {
+      root: {
+        fontSize: '14px',
+        letterSpacing: '-0.05px',
+        lineHeight: '21px',
+      },
+    },
+  },
 });
 
-export default theme;
+export default responsiveFontSizes(theme);
