@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import AuthLayout from '@layouts/AuthLayout';
 import DashboardLayout from '@layouts/DashboardLayout';
 import MainLayout from '@layouts/MainLayout';
+import Account from '@pages/Account';
 import SignIn from '@pages/auth/SignIn';
 import Dashboard from '@pages/Dashboard';
 import NotFound from '@pages/errors/NotFound';
@@ -26,6 +27,7 @@ const routes: PartialRouteObject[] = [
       { path: 'projects', element: <Projects /> },
       { path: 'dashboard', element: <Dashboard /> },
       { path: 'products', element: <Products /> },
+      { path: 'account', element: <Account /> },
       { path: '/', element: <Navigate to="/app/dashboard" replace /> },
       { path: '*', element: <Navigate to="/404" replace /> },
     ],

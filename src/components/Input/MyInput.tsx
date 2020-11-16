@@ -23,7 +23,6 @@ const MyInput: React.FC<IParams> = ({ name, ...rest }) => {
       name={name}
       id={fieldName}
       variant="outlined"
-      margin="normal"
       fullWidth
       defaultValue={defaultValue}
       error={!!error}

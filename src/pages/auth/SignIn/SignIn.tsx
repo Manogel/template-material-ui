@@ -109,6 +109,7 @@ const SignIn: React.FC = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              margin="normal"
             />
             <Input
               required
@@ -116,6 +117,7 @@ const SignIn: React.FC = () => {
               label="Senha"
               type="password"
               autoComplete="current-password"
+              margin="normal"
             />
 
             <Box my={2}>
