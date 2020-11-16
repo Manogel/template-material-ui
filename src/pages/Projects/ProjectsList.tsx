@@ -5,7 +5,7 @@ import Paginate from '@components/Paginate';
 import SearchBar from '@components/SearchBar';
 import { Typography } from '@material-ui/core';
 
-import { Header, ProjectCard } from './components';
+import { Header, ProjectCard, Filter } from './components';
 import projectsData from './data';
 import useStyles from './styles';
 
@@ -13,6 +13,7 @@ const Projects = () => {
   const classes = useStyles();
   const [rowsPerPage] = useState(10);
   const [page] = useState(0);
+  const [loadingSearch] = useState(false);
   const [projects] = useState(projectsData);
 
   const handleFilter = (filters: any) => {
@@ -29,7 +30,18 @@ const Projects = () => {
   return (
     <Page className={classes.root} title="Projects List">
       <Header />
-      <SearchBar onFilter={handleFilter} onSearch={handleSearch} />
+      <SearchBar
+        onFilter={handleFilter}
+        onSearch={handleSearch}
+        loadingSearch={loadingSearch}
+        inputProps={{
+          placeholder: 'Buscar destino',
+        }}
+        buttonProps={{
+          children: 'Buscar',
+        }}
+        filterComponent={Filter}
+      />
       <div className={classes.results}>
         <Typography color="textSecondary" gutterBottom variant="body2">
           {projects.length} Records found. Page {page + 1} of{' '}

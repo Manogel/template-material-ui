@@ -2,7 +2,7 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-import MyButton from '@components/MyButton';
+import MyButton, { IMyButtonProps } from '@components/MyButton';
 import { Paper, Input, InputProps } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -13,10 +13,18 @@ type IParams = IDivParams & {
   onSearch(text: string): void;
   loadingSearch?: boolean;
   inputProps?: InputProps;
+  buttonProps?: IMyButtonProps;
 };
 
 const Search = (props: IParams) => {
-  const { onSearch, className, inputProps, loadingSearch, ...rest } = props;
+  const {
+    onSearch,
+    className,
+    inputProps,
+    loadingSearch,
+    buttonProps,
+    ...rest
+  } = props;
   const [search, setSearch] = React.useState('');
   const classes = useStyles();
 
@@ -44,8 +52,9 @@ const Search = (props: IParams) => {
         fullWidth={false}
         onClick={handleSearch}
         loading={loadingSearch}
+        {...buttonProps}
       >
-        Search
+        {buttonProps?.children || 'Search'}
       </MyButton>
     </div>
   );

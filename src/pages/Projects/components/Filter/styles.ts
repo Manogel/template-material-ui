@@ -9,8 +9,8 @@ const useStyles = makeStyles((theme) => ({
   },
   drawer: {
     width: 420,
-    backgroundColor: theme.palette.background.default,
     maxWidth: '100%',
+    backgroundColor: theme.palette.background.default,
   },
   header: {
     padding: theme.spacing(2, 1),

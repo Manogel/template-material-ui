@@ -16,13 +16,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-type IParams = ButtonProps & {
+export type IMyButtonProps = ButtonProps & {
   children: string;
   loading?: boolean;
   spinner?: CircularProgressProps;
 };
 
-const MyButton: React.FC<IParams> = (props) => {
+const MyButton: React.FC<IMyButtonProps> = (props) => {
   const { children, loading, spinner, disabled, ...buttonParams } = props;
   const classes = useStyles();
 

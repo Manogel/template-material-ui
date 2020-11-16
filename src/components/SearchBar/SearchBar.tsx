@@ -2,20 +2,35 @@ import React, { useState } from 'react';
 
 import clsx from 'clsx';
 
-import { Grid, Button, GridProps } from '@material-ui/core';
+import { IMyButtonProps } from '@components/MyButton';
+import { Grid, Button, GridProps, InputProps } from '@material-ui/core';
 import FilterListIcon from '@material-ui/icons/FilterList';
 
-import { Search, Filter } from './components';
+import { Search } from './components';
+import { IFilterParams } from './components/Filter/Filter';
 import useStyles from './styles';
 
 type IParams = GridProps & {
   className?: string;
-  onFilter(filters: string): void;
+  filterComponent?: React.FC<IFilterParams>;
+  onFilter?: (filters: string) => void;
   onSearch(value: string): void;
+  inputProps?: InputProps;
+  buttonProps?: IMyButtonProps;
+  loadingSearch?: boolean;
 };
 
 const SearchBar = (props: IParams) => {
-  const { onFilter, onSearch, className, ...rest } = props;
+  const {
+    onFilter,
+    onSearch,
+    className,
+    inputProps,
+    buttonProps,
+    loadingSearch,
+    filterComponent: Filter,
+    ...rest
+  } = props;
 
   const classes = useStyles();
 
@@ -37,24 +52,35 @@ const SearchBar = (props: IParams) => {
       spacing={3}
     >
       <Grid item>
-        <Search className={classes.search} onSearch={onSearch} />
+        <Search
+          className={classes.search}
+          onSearch={onSearch}
+          inputProps={inputProps}
+          buttonProps={buttonProps}
+          loadingSearch={loadingSearch}
+        />
       </Grid>
-      <Grid item>
-        <Button
-          className={classes.filterButton}
-          color="primary"
-          onClick={handleFilterOpen}
-          size="small"
-          variant="outlined"
-        >
-          <FilterListIcon className={classes.filterIcon} /> Show filters
-        </Button>
-      </Grid>
-      <Filter
-        onClose={handleFilterClose}
-        onFilter={onFilter}
-        open={openFilter}
-      />
+      {!!Filter && onFilter && (
+        <>
+          <Grid item>
+            <Button
+              className={classes.filterButton}
+              color="primary"
+              onClick={handleFilterOpen}
+              size="small"
+              variant="outlined"
+            >
+              <FilterListIcon className={classes.filterIcon} /> Filtros
+            </Button>
+          </Grid>
+
+          <Filter
+            onClose={handleFilterClose}
+            onFilter={onFilter}
+            open={openFilter}
+          />
+        </>
+      )}
     </Grid>
   );
 };
