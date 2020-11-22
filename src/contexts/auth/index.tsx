@@ -16,7 +16,7 @@ interface IAuthContextData {
 const Auth = React.createContext<IAuthContextData>({} as IAuthContextData);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [loading, setLoading] = React.useState(false);
+  const [loading] = React.useState(false);
 
   const [auth, setAuth] = React.useState<IAuthState>(() => {
     const [token, user] = Storage.get(['token', 'user']);

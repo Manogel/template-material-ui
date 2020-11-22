@@ -1,6 +1,9 @@
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(() => ({
+  root: {
+    overflowY: 'auto',
+  },
   mobileDrawer: {
     width: 256,
   },

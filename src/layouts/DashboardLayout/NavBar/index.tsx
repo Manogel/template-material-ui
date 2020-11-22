@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 
 import navItems from './items';
-import NavItem from './NavItem';
+import Navigation from './Navigation';
 import useStyles from './styles';
 
 type IParams = {
@@ -34,8 +34,20 @@ const NavBar = ({ onMobileClose, openMobile }: IParams) => {
   }, [location.pathname]);
 
   const content = (
-    <Box height="100%" display="flex" flexDirection="column" bgcolor="white">
-      <Box alignItems="center" display="flex" flexDirection="column" p={2}>
+    <Box
+      height="100%"
+      display="flex"
+      flexDirection="column"
+      bgcolor="white"
+      overflow="auto"
+    >
+      <Box
+        alignItems="center"
+        display="flex"
+        flexDirection="column"
+        p={2}
+        minHeight="fit-content"
+      >
         <Avatar
           className={classes.avatar}
           component={RouterLink}
@@ -52,11 +64,11 @@ const NavBar = ({ onMobileClose, openMobile }: IParams) => {
       <Box p={2}>
         <List>
           {navItems.map((item) => (
-            <NavItem
-              href={item.href}
+            <Navigation
+              component="div"
               key={item.title}
+              pages={item.pages}
               title={item.title}
-              icon={item.icon}
             />
           ))}
         </List>

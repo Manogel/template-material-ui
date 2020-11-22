@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
   root: {},
   listItem: {
     '&:hover': {
-      backgroundColor: theme.palette.background.default,
+      backgroundColor: theme.palette.background.paper,
     },
   },
   avatarBlue: {

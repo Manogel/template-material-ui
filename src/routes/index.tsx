@@ -25,6 +25,7 @@ const routes: PartialRouteObject[] = [
       { path: 'users/:id', element: <UserDetail /> },
       { path: 'users/:id/:tab', element: <UserDetail /> },
       { path: 'projects', element: <Projects /> },
+      { path: 'others-projects', element: <Projects /> },
       { path: 'dashboard', element: <Dashboard /> },
       { path: 'products', element: <Products /> },
       { path: 'account', element: <Account /> },
@@ -36,9 +37,9 @@ const routes: PartialRouteObject[] = [
     path: '/',
     element: <MainLayout />,
     children: [
-      { path: '404', element: <NotFound /> },
+      { path: 'errors/404', element: <NotFound /> },
       { path: '/', element: <Navigate to="/auth" replace /> },
-      { path: '*', element: <Navigate to="/404" replace /> },
+      { path: '*', element: <Navigate to="errors/404" replace /> },
     ],
   },
   {
