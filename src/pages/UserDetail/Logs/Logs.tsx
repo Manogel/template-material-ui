@@ -15,7 +15,6 @@ import {
   TableBody,
   TableCell,
   TableRow,
-  colors,
 } from '@material-ui/core';
 
 import logsData from './data';
@@ -48,13 +47,7 @@ const Logs = (props: IParams) => {
                         <Typography variant="h6">{log.method}</Typography>
                       </TableCell>
                       <TableCell className={classes.statusCell}>
-                        <Label
-                          color={
-                            log.status === 200
-                              ? colors.green[600]
-                              : colors.red[600]
-                          }
-                        >
+                        <Label color={log.status === 200 ? 'success' : 'error'}>
                           {log.status}
                         </Label>
                       </TableCell>

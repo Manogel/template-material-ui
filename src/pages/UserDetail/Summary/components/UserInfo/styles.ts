@@ -4,18 +4,18 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.default,
   },
-  content: {},
-  sendButton: {
-    marginTop: theme.spacing(2),
+  content: {
+    padding: 0,
   },
-  mailIcon: {
+  actions: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    '& > * + *': {
+      marginLeft: 0,
+    },
+  },
+  buttonIcon: {
     marginRight: theme.spacing(1),
-  },
-  table: {
-    marginTop: theme.spacing(2),
-  },
-  cell: {
-    padding: theme.spacing(1),
   },
 }));
 

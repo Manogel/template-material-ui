@@ -17,7 +17,6 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  colors,
 } from '@material-ui/core';
 
 import useStyles from './styles';
@@ -31,10 +30,12 @@ const Invoices = (props: IParams) => {
 
   const classes = useStyles();
 
-  const statusColors = {
-    pending: colors.orange[600],
-    paid: colors.green[600],
-    rejected: colors.red[600],
+  const statusColors: {
+    [key: string]: 'warning' | 'success' | 'error';
+  } = {
+    pending: 'warning',
+    paid: 'success',
+    rejected: 'error',
   };
 
   return (

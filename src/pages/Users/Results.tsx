@@ -19,6 +19,8 @@ import {
   Typography,
   makeStyles,
   CardProps,
+  TableSortLabel,
+  Tooltip,
 } from '@material-ui/core';
 import getInitials from '@utils/getInitials';
 
@@ -118,7 +120,19 @@ const Results = ({ className, customers, ...rest }: IParams) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
-                <TableCell>Name</TableCell>
+                <TableCell>
+                  <Tooltip enterDelay={300} title="Ordenar">
+                    <TableSortLabel
+                      active
+                      direction="desc"
+                      onClick={() => {
+                        //
+                      }}
+                    >
+                      Name
+                    </TableSortLabel>
+                  </Tooltip>
+                </TableCell>
                 <TableCell>Email</TableCell>
                 <TableCell>Location</TableCell>
                 <TableCell>Phone</TableCell>
@@ -166,6 +180,9 @@ const Results = ({ className, customers, ...rest }: IParams) => {
                         //
                       }}
                       onTashPress={() => {
+                        //
+                      }}
+                      onEyePress={() => {
                         //
                       }}
                     />

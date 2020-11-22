@@ -1,7 +1,10 @@
 import React from 'react';
 
 import clsx from 'clsx';
+import * as Yup from 'yup';
 
+import MyButton from '@components/MyButton';
+import MyInput from '@components/MyInput';
 import {
   Modal,
   Card,
@@ -9,13 +12,19 @@ import {
   CardActions,
   Grid,
   Typography,
-  TextField,
   Switch,
-  Button,
   CardProps,
 } from '@material-ui/core';
+import { SubmitHandler, FormHandles } from '@unform/core';
+import { Form } from '@unform/web';
+import getValidationErrors from '@utils/getValidationErrors';
 
 import useStyles from './styles';
+
+interface IFormData {
+  email: string;
+  name: string;
+}
 
 type IParams = CardProps & {
   className?: string;
@@ -25,9 +34,31 @@ type IParams = CardProps & {
 };
 
 const UserEdit = (props: IParams) => {
-  const { open, onClose, user, className, ...rest } = props;
-
+  const { open, onClose, className, ...rest } = props;
   const classes = useStyles();
+  const formRef = React.useRef<FormHandles>(null);
+  const [loading, setLoading] = React.useState(false);
+
+  const handleSubmit: SubmitHandler<IFormData> = async (data) => {
+    setLoading(true);
+    formRef.current?.setErrors({});
+    try {
+      const schema = Yup.object().shape({
+        email: Yup.string()
+          .email('Informe um email válido')
+          .required('E-mail obrigatório'),
+        name: Yup.string().required('Nome é obrigatória'),
+      });
+
+      await schema.validate(data, { abortEarly: false });
+    } catch (err) {
+      if (err instanceof Yup.ValidationError) {
+        const errors = getValidationErrors(err);
+        formRef.current?.setErrors(errors);
+      }
+    }
+    setLoading(false);
+  };
 
   if (!open) {
     return null;
@@ -36,14 +67,14 @@ const UserEdit = (props: IParams) => {
   return (
     <Modal onClose={onClose} open={open}>
       <Card {...rest} className={clsx(classes.root, className)}>
-        <form>
+        <Form onSubmit={handleSubmit} ref={formRef}>
           <CardContent>
             <Typography align="center" gutterBottom variant="h3">
               Edit User
             </Typography>
             <Grid className={classes.container} container spacing={3}>
               <Grid item md={6} xs={12}>
-                <TextField
+                <MyInput
                   fullWidth
                   label="Email address"
                   name="email"
@@ -51,7 +82,7 @@ const UserEdit = (props: IParams) => {
                 />
               </Grid>
               <Grid item md={6} xs={12}>
-                <TextField
+                <MyInput
                   fullWidth
                   label="Full name"
                   name="name"
@@ -59,7 +90,7 @@ const UserEdit = (props: IParams) => {
                 />
               </Grid>
               <Grid item md={6} xs={12}>
-                <TextField
+                <MyInput
                   fullWidth
                   label="Phone number"
                   name="phone"
@@ -67,7 +98,7 @@ const UserEdit = (props: IParams) => {
                 />
               </Grid>
               <Grid item md={6} xs={12}>
-                <TextField
+                <MyInput
                   fullWidth
                   label="State/Region"
                   name="state"
@@ -75,7 +106,7 @@ const UserEdit = (props: IParams) => {
                 />
               </Grid>
               <Grid item md={6} xs={12}>
-                <TextField
+                <MyInput
                   fullWidth
                   label="Country"
                   name="country"
@@ -83,7 +114,7 @@ const UserEdit = (props: IParams) => {
                 />
               </Grid>
               <Grid item md={6} xs={12}>
-                <TextField
+                <MyInput
                   fullWidth
                   label="Address 1"
                   name="address1"
@@ -91,7 +122,7 @@ const UserEdit = (props: IParams) => {
                 />
               </Grid>
               <Grid item md={6} xs={12}>
-                <TextField
+                <MyInput
                   fullWidth
                   label="Address 2"
                   name="address2"
@@ -120,18 +151,19 @@ const UserEdit = (props: IParams) => {
             </Grid>
           </CardContent>
           <CardActions className={classes.actions}>
-            <Button onClick={onClose} variant="contained">
+            <MyButton onClick={onClose} variant="contained" disabled={loading}>
               Close
-            </Button>
-            <Button
-              className={classes.saveButton}
-              onClick={onClose}
+            </MyButton>
+            <MyButton
               variant="contained"
+              type="submit"
+              customColor="success"
+              loading={loading}
             >
               Save
-            </Button>
+            </MyButton>
           </CardActions>
-        </form>
+        </Form>
       </Card>
     </Modal>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import HeaderPage from '@components/HeaderPage';
+import { HeaderSample } from '@components/HeaderPage';
 import Page from '@components/Page';
 import HeaderSearch from '@components/tables/HeaderSearch';
 import { Box, Card, Container, makeStyles } from '@material-ui/core';
@@ -24,11 +24,22 @@ const useStyles = makeStyles((theme) => ({
 const Users = () => {
   const classes = useStyles();
   const [customers] = useState(data);
+  const [loading, setLoading] = useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  });
 
   return (
-    <Page className={classes.root} title="Customers">
+    <Page className={classes.root} title="Customers" loading={loading}>
       <Container maxWidth={false}>
-        <HeaderPage title="Usuários" rightButtonTitle="Adicionar usuário" />
+        <HeaderSample title="Usuários" rightButtonTitle="Adicionar usuário" />
         <Box mt={3}>
           <Card className={classes.cardContainer}>
             <HeaderSearch placeholder="Buscar usuários" />

@@ -2,7 +2,8 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-import MyButton, { IMyButtonProps } from '@components/MyButton';
+import MyButton from '@components/MyButton';
+import { IMyButtonProps } from '@components/MyButton/MyButton';
 import { Paper, Input, InputProps } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -52,6 +53,8 @@ const Search = (props: IParams) => {
         fullWidth={false}
         onClick={handleSearch}
         loading={loadingSearch}
+        customColor="success"
+        variant="contained"
         {...buttonProps}
       >
         {buttonProps?.children || 'Search'}

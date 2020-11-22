@@ -6,8 +6,8 @@ import * as Yup from 'yup';
 
 import FacebookIcon from '@assets/icons/Facebook';
 import GoogleIcon from '@assets/icons/Google';
-import Input from '@components/Input';
 import MyButton from '@components/MyButton';
+import Input from '@components/MyInput';
 import Page from '@components/Page';
 import { useAuth } from '@contexts/auth';
 import {
@@ -121,7 +121,12 @@ const SignIn: React.FC = () => {
             />
 
             <Box my={2}>
-              <MyButton type="submit" loading={loading}>
+              <MyButton
+                type="submit"
+                loading={loading}
+                variant="contained"
+                fullWidth
+              >
                 Entrar
               </MyButton>
             </Box>

@@ -14,7 +14,6 @@ import {
   TableBody,
   TableCell,
   TableRow,
-  colors,
   CardProps,
 } from '@material-ui/core';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
@@ -42,6 +41,8 @@ const Invoices = (props: IParams) => {
   const [refundedInvoices, refundedTotal] = [[1, 2, 1, 2], '$45.00', 4];
   const [incomeInvoices, incomeTotal] = [[1, 2], '$55.00', 2];
 
+  const isValid = false;
+
   return (
     <Card {...rest} className={clsx(classes.root, className)}>
       <CardHeader title="Invoices/Billing" />
@@ -54,8 +55,8 @@ const Invoices = (props: IParams) => {
               <TableCell>
                 4142 **** **** **** ****
                 <div>
-                  <Label color={false ? colors.green[600] : colors.red[600]}>
-                    {false ? 'YES' : 'NO'}
+                  <Label color={isValid ? 'success' : 'error'}>
+                    {isValid ? 'YES' : 'NO'}
                   </Label>
                 </div>
               </TableCell>

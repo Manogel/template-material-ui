@@ -19,30 +19,45 @@ const useStyles = makeStyles(() => ({
 
 type IParams = {
   title: string;
+  topic?: string;
   rightButtonTitle?: string;
   rightButtonProps?: ButtonProps;
+  importExport?: boolean;
 };
 
-const HeaderPage: React.FC<IParams> = (props) => {
-  const { title, rightButtonProps, rightButtonTitle } = props;
+const HeaderSample: React.FC<IParams> = (props) => {
+  const {
+    title,
+    topic,
+    rightButtonProps,
+    rightButtonTitle,
+    importExport,
+  } = props;
   const classes = useStyles();
 
   return (
     <Grid container spacing={3} justify="space-between">
       <Grid item>
-        <Typography variant="h3" color="textPrimary">
+        {!!topic && (
+          <Typography component="h2" gutterBottom variant="overline">
+            {topic}
+          </Typography>
+        )}
+        <Typography component="h1" variant="h3">
           {title}
         </Typography>
 
-        {/* <Box marginTop={2}>
-          <Button startIcon={<ImportIcon size={18} />}>Importar</Button>
-          <Button
-            startIcon={<ExportIcon size={18} />}
-            className={classes.buttonExport}
-          >
-            Exportar
-          </Button>
-        </Box> */}
+        {importExport && (
+          <Box marginTop={2}>
+            <Button startIcon={<ImportIcon size={18} />}>Importar</Button>
+            <Button
+              startIcon={<ExportIcon size={18} />}
+              className={classes.buttonExport}
+            >
+              Exportar
+            </Button>
+          </Box>
+        )}
       </Grid>
       {!!rightButtonTitle && (
         <Grid item>
@@ -60,4 +75,4 @@ const HeaderPage: React.FC<IParams> = (props) => {
   );
 };
 
-export default HeaderPage;
+export default HeaderSample;

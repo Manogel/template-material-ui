@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 import clsx from 'clsx';
 
+import MyButton from '@components/MyButton';
 import {
   Card,
   CardHeader,
   CardContent,
   TextField,
-  Button,
   Divider,
   Table,
   TableBody,
@@ -62,10 +62,15 @@ const SendEmails = (props: IParams) => {
             </option>
           ))}
         </TextField>
-        <Button className={classes.sendButton} variant="contained">
-          <MaiIcon className={classes.mailIcon} />
+        <MyButton
+          className={classes.sendButton}
+          variant="contained"
+          customColor="success"
+          size="small"
+          startIcon={<MaiIcon className={classes.mailIcon} />}
+        >
           Send email
-        </Button>
+        </MyButton>
         <Table className={classes.table}>
           <TableBody>
             <TableRow>

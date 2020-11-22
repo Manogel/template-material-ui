@@ -2,7 +2,7 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-import HeaderPage from '@components/HeaderPage';
+import { HeaderSample } from '@components/HeaderPage';
 import HeaderSearch from '@components/tables/HeaderSearch';
 import { Box, Card, CardContent, makeStyles } from '@material-ui/core';
 
@@ -28,7 +28,11 @@ const Toolbar = ({ className, ...rest }: IParams) => {
 
   return (
     <div className={clsx(classes.root, className)} {...rest}>
-      <HeaderPage title="Produtos" rightButtonTitle="Adicionar produto" />
+      <HeaderSample
+        title="Produtos"
+        rightButtonTitle="Adicionar produto"
+        importExport
+      />
       <Box mt={3}>
         <Card className={classes.searchBox}>
           <CardContent>

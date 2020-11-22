@@ -14,34 +14,14 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  colors,
   CardProps,
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import LockOpenIcon from '@material-ui/icons/LockOpenOutlined';
 import PersonIcon from '@material-ui/icons/PersonOutline';
 
 import { UserEdit } from './components';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.default,
-  },
-  content: {
-    padding: 0,
-  },
-  actions: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    '& > * + *': {
-      marginLeft: 0,
-    },
-  },
-  buttonIcon: {
-    marginRight: theme.spacing(1),
-  },
-}));
+import useStyles from './styles';
 
 type IParams = CardProps & {
   className?: string;
@@ -62,6 +42,8 @@ const UserInfo = (props: IParams) => {
     setOpenEdit(false);
   };
 
+  const isVerified = true;
+
   return (
     <Card {...rest} className={clsx(classes.root, className)}>
       <CardHeader title="Customer info" />
@@ -74,8 +56,8 @@ const UserInfo = (props: IParams) => {
               <TableCell>
                 ekaterina@devias.io
                 <div>
-                  <Label color={true ? colors.green[600] : colors.orange[600]}>
-                    {true ? 'Email verified' : 'Email not verified'}
+                  <Label color={isVerified ? 'success' : 'warning'}>
+                    {isVerified ? 'Email verified' : 'Email not verified'}
                   </Label>
                 </div>
               </TableCell>

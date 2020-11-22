@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import clsx from 'clsx';
 
-import { IMyButtonProps } from '@components/MyButton';
+import { IMyButtonProps } from '@components/MyButton/MyButton';
 import { Grid, Button, GridProps, InputProps } from '@material-ui/core';
 import FilterListIcon from '@material-ui/icons/FilterList';
 
@@ -52,13 +52,15 @@ const SearchBar = (props: IParams) => {
       spacing={3}
     >
       <Grid item>
-        <Search
-          className={classes.search}
-          onSearch={onSearch}
-          inputProps={inputProps}
-          buttonProps={buttonProps}
-          loadingSearch={loadingSearch}
-        />
+        {onSearch && (
+          <Search
+            className={classes.search}
+            onSearch={onSearch}
+            inputProps={inputProps}
+            buttonProps={buttonProps}
+            loadingSearch={loadingSearch}
+          />
+        )}
       </Grid>
       {!!Filter && onFilter && (
         <>

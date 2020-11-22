@@ -35,11 +35,6 @@ const navItems = [
     title: 'Account',
   },
   {
-    href: '/app/settings',
-    icon: SettingsIcon,
-    title: 'Settings',
-  },
-  {
     href: '/404',
     icon: AlertCircleIcon,
     title: 'Error',

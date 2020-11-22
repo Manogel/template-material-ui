@@ -3,10 +3,10 @@ import React from 'react';
 import clsx from 'clsx';
 import { format } from 'date-fns';
 
+import MyButton from '@components/MyButton';
 import {
   Avatar,
   Box,
-  Button,
   Card,
   CardActions,
   CardContent,
@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
     width: 100,
     marginBottom: theme.spacing(1),
   },
+  fileInput: {
+    display: 'none',
+  },
 }));
 
 type IParams = CardProps & {
@@ -43,12 +46,26 @@ type IParams = CardProps & {
 
 const Profile = ({ className, ...rest }: IParams) => {
   const classes = useStyles();
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
+  const [imagePreview, setImagePreview] = React.useState<string>('');
+
+  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const _file = e.target.files && e.target.files[0];
+
+    if (_file) {
+      setImagePreview(URL.createObjectURL(_file));
+    }
+  };
+
+  const handleAttach = () => {
+    fileInputRef.current?.click();
+  };
 
   return (
     <Card className={clsx(classes.root, className)} {...rest}>
       <CardContent>
         <Box alignItems="center" display="flex" flexDirection="column">
-          <Avatar className={classes.avatar} src={user.avatar}>
+          <Avatar className={classes.avatar} src={imagePreview || user.avatar}>
             {getInitials(user.name)}
           </Avatar>
           <Typography color="textPrimary" gutterBottom variant="h3">
@@ -64,10 +81,23 @@ const Profile = ({ className, ...rest }: IParams) => {
       </CardContent>
       <Divider />
       <CardActions>
-        <Button color="primary" fullWidth variant="text">
+        <MyButton
+          color="primary"
+          fullWidth
+          size="small"
+          variant="outlined"
+          onClick={handleAttach}
+        >
           Upload picture
-        </Button>
+        </MyButton>
       </CardActions>
+      <input
+        className={classes.fileInput}
+        ref={fileInputRef}
+        type="file"
+        onChange={handleFileInputChange}
+        accept="image/*"
+      />
     </Card>
   );
 };

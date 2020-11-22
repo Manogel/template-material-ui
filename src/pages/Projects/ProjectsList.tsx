@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
+import { HeaderSample } from '@components/HeaderPage';
 import Page from '@components/Page';
 import Paginate from '@components/Paginate';
 import SearchBar from '@components/SearchBar';
 import { Typography } from '@material-ui/core';
 
-import { Header, ProjectCard, Filter } from './components';
+import { ProjectCard, Filter } from './components';
 import projectsData from './data';
 import useStyles from './styles';
 
@@ -29,7 +30,11 @@ const Projects = () => {
 
   return (
     <Page className={classes.root} title="Projects List">
-      <Header />
+      <HeaderSample
+        topic="MANAGEMENT"
+        title="Projects"
+        rightButtonTitle="Add project"
+      />
       <SearchBar
         onFilter={handleFilter}
         onSearch={handleSearch}

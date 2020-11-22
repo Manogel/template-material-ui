@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '100%',
     overflowY: 'auto',
     maxWidth: '100%',
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     marginTop: theme.spacing(3),

@@ -27,10 +27,6 @@ const useStyles = makeStyles((theme) => ({
   },
   searchButton: {
     marginLeft: theme.spacing(2),
-    backgroundColor: theme.palette.success.main,
-    '&:hover': {
-      background: theme.palette.success.dark,
-    },
     boxShadow: theme.shadows[2],
   },
 }));

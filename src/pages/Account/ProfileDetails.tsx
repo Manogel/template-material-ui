@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import * as Yup from 'yup';
 
-import Input from '@components/Input';
 import MyButton from '@components/MyButton';
+import Input from '@components/MyInput';
 import {
   Box,
   Card,
