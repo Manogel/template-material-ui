@@ -30,7 +30,7 @@ const routes: PartialRouteObject[] = [
       { path: 'products', element: <Products /> },
       { path: 'account', element: <Account /> },
       { path: '/', element: <Navigate to="/app/dashboard" replace /> },
-      { path: '*', element: <Navigate to="/404" replace /> },
+      { path: '*', element: <Navigate to="/auth" replace /> },
     ],
   },
   {
@@ -39,7 +39,7 @@ const routes: PartialRouteObject[] = [
     children: [
       { path: 'errors/404', element: <NotFound /> },
       { path: '/', element: <Navigate to="/auth" replace /> },
-      { path: '*', element: <Navigate to="errors/404" replace /> },
+      { path: '*', element: <Navigate to="/auth" replace /> },
     ],
   },
   {
