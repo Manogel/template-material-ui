@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/template-material-ui/static/js/main.78e96863.chunk.js",
+    "main.js.map": "/template-material-ui/static/js/main.78e96863.chunk.js.map",
+    "runtime-main.js": "/template-material-ui/static/js/runtime-main.2f1677fe.js",
+    "runtime-main.js.map": "/template-material-ui/static/js/runtime-main.2f1677fe.js.map",
+    "static/css/2.847a128f.chunk.css": "/template-material-ui/static/css/2.847a128f.chunk.css",
+    "static/js/2.cd732968.chunk.js": "/template-material-ui/static/js/2.cd732968.chunk.js",
+    "static/js/2.cd732968.chunk.js.map": "/template-material-ui/static/js/2.cd732968.chunk.js.map",
+    "index.html": "/template-material-ui/index.html",
+    "static/css/2.847a128f.chunk.css.map": "/template-material-ui/static/css/2.847a128f.chunk.css.map",
+    "static/js/2.cd732968.chunk.js.LICENSE.txt": "/template-material-ui/static/js/2.cd732968.chunk.js.LICENSE.txt",
+    "static/media/logo.a33b65f2.svg": "/template-material-ui/static/media/logo.a33b65f2.svg",
+    "static/media/page_not_found.4861ae77.svg": "/template-material-ui/static/media/page_not_found.4861ae77.svg",
+    "static/media/undraw_empty.c8301e2a.svg": "/template-material-ui/static/media/undraw_empty.c8301e2a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2f1677fe.js",
+    "static/css/2.847a128f.chunk.css",
+    "static/js/2.cd732968.chunk.js",
+    "static/js/main.78e96863.chunk.js"
+  ]
+}
