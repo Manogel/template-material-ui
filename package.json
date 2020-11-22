@@ -1,5 +1,6 @@
 {
-  "name": "front-bugger-admin",
+  "homepage": "http://manogel.github.io/template-material-ui",
+  "name": "template-material-ui",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -37,6 +38,8 @@
     "yup": "^0.29.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
@@ -78,6 +81,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^3.1.0",
     "prettier": "^2.1.2",
     "react-app-rewired": "^2.1.6",
     "react-refresh": "^0.9.0"
