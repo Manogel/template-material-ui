@@ -4,6 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 
 import { Logo } from '@assets/svgs';
+import NotificationsPopover from '@components/NotificationsPopover';
 import { useAuth } from '@contexts/auth';
 import {
   AppBar,
@@ -17,7 +18,6 @@ import {
 } from '@material-ui/core';
 import InputIcon from '@material-ui/icons/Input';
 import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 
 import useStyles from './styles';
 
@@ -29,7 +29,6 @@ type IParams = AppBarProps & {
 const TopBar = ({ className, onMobileNavOpen, ...rest }: IParams) => {
   const { signOut } = useAuth();
   const classes = useStyles();
-  const [notifications] = useState([]);
 
   return (
     <AppBar className={clsx(classes.root, className)} elevation={0} {...rest}>
@@ -39,17 +38,7 @@ const TopBar = ({ className, onMobileNavOpen, ...rest }: IParams) => {
         </RouterLink>
         <Box flexGrow={1} />
         <Hidden mdDown>
-          <Tooltip title="Notificações" aria-label="notificações" arrow>
-            <IconButton color="inherit">
-              <Badge
-                badgeContent={notifications.length}
-                color="primary"
-                variant="dot"
-              >
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-          </Tooltip>
+          <NotificationsPopover />
           <Tooltip title="Sair" aria-label="sair" arrow>
             <IconButton color="inherit" onClick={signOut}>
               <InputIcon />
